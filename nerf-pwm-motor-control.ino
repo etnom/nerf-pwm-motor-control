@@ -7,11 +7,11 @@
 Button triggerBtn (TRIGGER_PIN, true, true, 25);		//button class, invert and internal pullups with 20 ms debounce time
 
 void setup() {
-	
+
 }
 
 void loop () {
-	if (triggerBtn.isPressed()) {
+	if (triggerBtn.isPressed()) {		//if trigger pressed
 		analogWrite(PWM_OUT_PIN, analogRead(POT_IN_PIN)/4);		//write PWM depending on pot value
 	}
 }
