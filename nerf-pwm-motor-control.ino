@@ -14,12 +14,12 @@ void setup() {
 }
 
 void loop () {
-	if(triggerBtn.wasPressed()) {
-		digitalWrite(PWM_OUT_PIN, HIGH);
+	if(triggerBtn.wasPressed()) {			//when trigger first pressed
+		digitalWrite(PWM_OUT_PIN, HIGH);	//motor at full power
 		delay(MOTOR_ACCEL_TIME);			//allow motor to reach full speed
-		hasAccelerated = true;
-	} else if (triggerBtn.wasReleased()) {
-		hasAccelerated = false;				
+		hasAccelerated = true;				//allow pwm
+	} else if (triggerBtn.wasReleased()) {	//when trigger released
+		hasAccelerated = false;				//reset flag to check for acceleration
 	}
 
 	if (triggerBtn.isPressed() && hasAccelerated) {		//if trigger pressed
