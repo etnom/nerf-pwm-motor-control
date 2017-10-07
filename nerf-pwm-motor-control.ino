@@ -29,7 +29,7 @@ void setup() {
 }
 
 void loop () {
-x
+
 	if(triggerBtn.isPressed() && !hasAccelerated) {				//when trigger first pressed
 		digitalWrite(PWM_OUT_PIN, HIGH);						//motor at full power
 		delay(MOTOR_ACCEL_TIME);								//allow motor to reach full speed
