@@ -1,4 +1,19 @@
-#include <Button.h>			//library for dealing with buttons
+// By Monty C
+// Compelted Fri - 10/06/17
+//
+// Arduino sketch for PWM motor control in flywheel NERF blasters. 
+// 
+// Requires potentieometer and switch as input, ouput needs to be MOSFET since relays are too slow for PWM. Acceleration 
+// time included to combat complete motor stall. Without sufficent power, motor might not even be able to power up at a low 
+// duty cycle, so a burst of 100% duty cycle is used to accerlerate the motor from stall. Once motor is spinning, PWM kicks 
+// in for variable velocity control. 
+//
+//
+// Using  Button library for Arduino: https://github.com/JChristensen/Button
+//
+
+
+#include <Button.h>				//library for dealing with buttons
 
 #define POT_IN_PIN 0			//pin for poteniometer as input
 #define PWM_OUT_PIN 5			//pin for pwm, using pin 5 for 980 Hz PWM
@@ -14,8 +29,7 @@ void setup() {
 }
 
 void loop () {
-	triggerBtn.read();
-
+x
 	if(triggerBtn.isPressed() && !hasAccelerated) {				//when trigger first pressed
 		digitalWrite(PWM_OUT_PIN, HIGH);						//motor at full power
 		delay(MOTOR_ACCEL_TIME);								//allow motor to reach full speed
