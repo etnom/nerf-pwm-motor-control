@@ -16,7 +16,7 @@
 #include <Button.h>				//library for dealing with buttons
 
 #define POT_IN_PIN 0			//pin for poteniometer as input
-#define PWM_OUT_PIN 5			//pin for pwm, using pin 5 for 980 Hz PWM
+#define PWM_OUT_PIN 3			//pin for pwm, using pin 3 for less audible noise
 #define TRIGGER_PIN 4			//pin for trigger
 #define MOTOR_ACCEL_TIME 200	//time to allow motor to reach full speed, in ms. May need to be adjusted depending on motor torque
 
@@ -29,7 +29,6 @@ void setup() {
 }
 
 void loop () {
-
 	if(triggerBtn.isPressed() && !hasAccelerated) {				//when trigger first pressed
 		digitalWrite(PWM_OUT_PIN, HIGH);						//motor at full power
 		delay(MOTOR_ACCEL_TIME);								//allow motor to reach full speed
